@@ -1,19 +1,9 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: platillos-deployment
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: platillos-aplicacion
-  template:
-    metadata:
-      labels:
-        app: platillos-aplicacion
-    spec:
-      containers:
-        - name: platillos-contenedor
-          image: DOCKERFILE
-          ports:
-            - containerPort: 3000
+version : '3'
+
+services:
+    cosasapp:
+        container_name: platillosapp
+        restart: always
+        build: 
+            context: ./platillos/
+            dockerfile: DOCKERFILE  
